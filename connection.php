@@ -1,7 +1,7 @@
 <?php
 
 $server = "ix.cs.uoregon.edu";
-$dbname ="housing";
+$dbname = "housing";
 $user = "guest";
 $pass = "guest";
 $port="3240";

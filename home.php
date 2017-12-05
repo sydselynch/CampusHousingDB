@@ -1,6 +1,5 @@
 <?php
-include('connection.txt');
-echo $dbname;
+include('connection.php');
 #connect to the housing database
 $conn = mysqli_connect($server, $user, $pass, $dbname, $port)
 or die('Error connecting to MySQL server.');
@@ -11,7 +10,7 @@ or die('Error connecting to MySQL server.');
 <head>
   <title>Campus Housing System</title>
 </head>
-
+<hr>
 <body bgcolor="white">
 
 <h1 align="center">Campus Housing System</h1>

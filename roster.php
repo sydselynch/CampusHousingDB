@@ -11,6 +11,8 @@ or die('Error connecting to MySQL server.');
   <title>Resident Roster</title>
 </head>
 
+<h1 align="center">Current Housing Roster</h1>
+
 <body bgcolor="white">
 
 
@@ -32,7 +34,7 @@ $sql->bind_result($resident, $hallName, $hallCode, $room, $complex);
 
 print "<pre>";
 while($row = $sql->fetch()){
-  printf("%s %s %s %s %s", $resident, $hallName, $hallCode, $room, $complex);
+  printf("%s %s %s %s %s\n", $resident, $hallName, $hallCode, $room, $complex);
 }
 print "</pre>";
 

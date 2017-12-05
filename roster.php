@@ -48,14 +48,19 @@ $sql->bind_result($resident, $hallName, $hallCode, $room, $complex);
 while($row = $sql->fetch()){
   ?>
   <tr>
-    <td><?php echo implode('</td><td>', $resident); ?></td>
+    <td><?php echo $resident); ?></td>
+    <td><?php echo $hallName); ?></td>
+    <td><?php echo $hallCode); ?></td>
+    <td><?php echo $room); ?></td>
+    <td><?php echo $complex); ?></td>
   </tr>
 
-  #printf("%s %s %s %s %s\n", $resident, $hallName, $hallCode, $room, $complex);
+  <!-- #printf("%s %s %s %s %s\n", $resident, $hallName, $hallCode, $room, $complex); -->
 <?php } ?>
 </tbody>
 </table>
 
+<?php
 
 $sql->close();
 mysqli_free_result($result);

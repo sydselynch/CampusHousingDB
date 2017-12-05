@@ -2,8 +2,8 @@
 include('connection.txt')
 
 #connect to the housing database
-#$conn = mysqli_connect($server, $user, $pass, $dbname, $port)
-#or die('Error connecting to MySQL server.');
+$conn = mysqli_connect($server, $user, $pass, $dbname, $port)
+or die('Error connecting to MySQL server.');
 
 ?>
 
@@ -12,7 +12,7 @@ include('connection.txt')
   <title>Campus Housing System</title>
 </head>
 
-<body bgcolor="gray">
+<body bgcolor="white">
 
 <h1 align="center">Campus Housing System</h1>
 

@@ -25,20 +25,21 @@ include('connection.txt')
     <th>Mail and Packages</th>
   </tr>
   <tr>
-    <td align="center">Roster</td>
-    <td align="center">Loan</td>
-    <td align="center">Loan</td>
-    <td align="center">Log</td>
-    <!-- <a href="..."> -->
+    <td align="center"><a href="roster.php">Roster</a></td>
+    <td align="center"><a href="equipLoan.php">Loan</a></td>
+    <td align="center"><a href="keyLoan.php">Loan</a></td>
+    <td align="center"><a href="packageLog.php">Log</a></td>
   </tr>
   <tr>
-    <td align="center">Look-Up</td>
-    <td align="center">Return</td>
-    <td align="center">Return</td>
-    <td align="center">Deliver</td>
-
+    <td align="center"><a href="lookup.php">Look-Up</a></td>
+    <td align="center"><a href="equipReturn.php">Return</a></td>
+    <td align="center"><a href="keyReturn.php">Return</a></td>
+    <td align="center"><a href="packageDeliver.php">Deliver</a></td>
   </tr>
   <tr>
-    <td align="center">Check-In and Check-Out</td>
+    <td align="center"><a href="cico.php">Check-In and Check-Out</a></td>
   </tr>
 </table>
+
+
+<hr>

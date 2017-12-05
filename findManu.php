@@ -9,17 +9,17 @@ or die('Error connecting to MySQL server.');
 
 <html>
 <head>
-  <title>Assignment 4</title>
+  <title>Campus Housing</title>
   </head>
-  
+
   <body bgcolor="white">
-  
-  
+
+
   <hr>
-  
+
 <?php
 $manufacturer = $_POST['manufacturer'];
- 
+
 $query = "SELECT description, COALESCE(SUM(total_price), 0) AS total FROM stock AS s LEFT JOIN items AS i USING(stock_num, manu_code) JOIN manufact USING(manu_code) LEFT JOIN orders USING(order_num) WHERE manu_name = {$manufacturer} GROUP BY description";
 
 $sql = $conn->prepare("SELECT description, COALESCE(SUM(total_price), 0) AS total FROM stock AS s LEFT JOIN items AS i USING(stock_num, manu_code) JOIN manufact USING(manu_code) LEFT JOIN orders USING(order_num) WHERE manu_name = (?) GROUP BY description");
@@ -62,7 +62,7 @@ mysqli_close($conn);
 
 <p>
 <hr>
- 	 
- 
+
+
 </body>
 </html>

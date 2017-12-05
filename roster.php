@@ -12,7 +12,7 @@ or die('Error connecting to MySQL server.');
 </head>
 
 <h1 align="center">Current Housing Roster</h1>
-<a align="center" href="home.php">Return Home</a>
+<h3 align="center"><a href="home.php">Return Home</a></h3>
 
 <body bgcolor="white">
 

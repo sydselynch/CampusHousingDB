@@ -13,6 +13,7 @@ or die('Error connecting to MySQL server.');
 <hr>
 <body bgcolor="white">
 
+
 <h1 align="center">Campus Housing System</h1>
 
 

@@ -25,23 +25,20 @@ include('connection.txt')
     <th>Mail and Packages</th>
   </tr>
   <tr>
-    <td align="left">Roster</td>
-    <td align="left">Loan</td>
+    <td align="center">Roster</td>
+    <td align="center">Loan</td>
+    <td align="center">Loan</td>
+    <td align="center">Log</td>
     <!-- <a href="..."> -->
   </tr>
   <tr>
-    <td align="left">Look-Up</td>
-    <td align="left">Return</td>
-    <td align="left">Loan</td>
+    <td align="center">Look-Up</td>
+    <td align="center">Return</td>
+    <td align="center">Return</td>
+    <td align="center">Deliver</td>
 
   </tr>
   <tr>
-    <td align="left">Check-In and Check-Out</td>
-    <td align="center">Return</td>
-  </tr>
-  <tr>
-    <td></td>
-    <td align="center">Log</td>
-    <td align="center">Deliver</td>
+    <td align="center">Check-In and Check-Out</td>
   </tr>
 </table>

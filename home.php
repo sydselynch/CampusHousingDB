@@ -27,18 +27,20 @@ include('connection.php')
   <tr>
     <td align="center">Roster</td>
     <!-- <a href="..."> -->
+  </tr>
+  <tr>
     <td align="center">Look-Up</td>
+    <td align="center">Loan</td>
+
+  </tr>
+  <tr>
     <td align="center">Check-In and Check-Out</td>
-  </tr>
-  <tr>
+    <td align="center">Return</td>
     <td align="center">Loan</td>
     <td align="center">Return</td>
   </tr>
   <tr>
-    <td align="center">Loan</td>
-    <td align="center">Return</td>
-  </tr>
-  <tr>
+    <td></td>
     <td align="center">Log</td>
     <td align="center">Deliver</td>
   </tr>

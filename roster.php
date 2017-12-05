@@ -33,7 +33,7 @@ or die(mysqli_error($conn));
 $sql->bind_result($resident, $hallName, $hallCode, $room, $complex);
 
 ?>
-<table>
+<table style="width:100%;">
   <thead>
     <tr>
       <th>Name</th>
@@ -48,11 +48,11 @@ $sql->bind_result($resident, $hallName, $hallCode, $room, $complex);
 while($row = $sql->fetch()){
   ?>
   <tr>
-    <td><?php echo $resident; ?></td>
-    <td><?php echo $hallName; ?></td>
-    <td><?php echo $hallCode; ?></td>
-    <td><?php echo $room; ?></td>
-    <td><?php echo $complex; ?></td>
+    <td align="center"><?php echo $resident; ?></td>
+    <td align="center"><?php echo $hallName; ?></td>
+    <td align="center"><?php echo $hallCode; ?></td>
+    <td align="center"><?php echo $room; ?></td>
+    <td align="center"><?php echo $complex; ?></td>
   </tr>
 
   <!-- #printf("%s %s %s %s %s\n", $resident, $hallName, $hallCode, $room, $complex); -->

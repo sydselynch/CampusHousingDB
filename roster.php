@@ -32,11 +32,30 @@ or die(mysqli_error($conn));
 
 $sql->bind_result($resident, $hallName, $hallCode, $room, $complex);
 
-print "<pre>";
+?>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Hall Name</th>
+      <th>Hall Code</th>
+      <th>Room</th>
+      <th>Complex</th>
+    </tr>
+  </thead>
+  <tbody>
+<?php
 while($row = $sql->fetch()){
-  printf("%s %s %s %s %s\n", $resident, $hallName, $hallCode, $room, $complex);
-}
-print "</pre>";
+  ?>
+  <tr>
+    <td><?php echo implode('</td><td>', $resident); ?></td>
+  </tr>
+
+  #printf("%s %s %s %s %s\n", $resident, $hallName, $hallCode, $room, $complex);
+<?php } ?>
+</tbody>
+</table>
+
 
 $sql->close();
 mysqli_free_result($result);

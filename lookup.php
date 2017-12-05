@@ -17,7 +17,7 @@ or die('Error connecting to MySQL server.');
 <body bgcolor="white">
 
 <?php
-if isset($_POST['first']) && isset($_POST['last']) {
+if (isset($_POST['first']) && isset($_POST['last'])){
   $firstName = $_POST['first'];
   $lastName = $_POST['last'];
 

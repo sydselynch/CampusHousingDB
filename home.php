@@ -1,5 +1,5 @@
 <?php
-include('connection.php')
+include('connection.txt')
 
 #connect to the housing database
 #$conn = mysqli_connect($server, $user, $pass, $dbname, $port)
@@ -25,18 +25,18 @@ include('connection.php')
     <th>Mail and Packages</th>
   </tr>
   <tr>
-    <td align="center">Roster</td>
+    <td align="left">Roster</td>
+    <td align="left">Loan</td>
     <!-- <a href="..."> -->
   </tr>
   <tr>
-    <td align="center">Look-Up</td>
-    <td align="center">Loan</td>
+    <td align="left">Look-Up</td>
+    <td align="left">Return</td>
+    <td align="left">Loan</td>
 
   </tr>
   <tr>
-    <td align="center">Check-In and Check-Out</td>
-    <td align="center">Return</td>
-    <td align="center">Loan</td>
+    <td align="left">Check-In and Check-Out</td>
     <td align="center">Return</td>
   </tr>
   <tr>

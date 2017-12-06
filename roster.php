@@ -32,7 +32,7 @@ $sql = $conn->prepare($query);
 $result = $sql->execute()
 or die(mysqli_error($conn));
 
-$sql->bind_result($resident, $hallName, $hallCode, $room, $complex);
+$sql->bind_result($resident, $hallName, $hallCode, $room, $complex, $mailbox);
 
 ?>
 <table style="width:100%;">
@@ -43,6 +43,7 @@ $sql->bind_result($resident, $hallName, $hallCode, $room, $complex);
       <th>Hall Code</th>
       <th>Room</th>
       <th>Complex</th>
+      <th>Mailbox</th>
     </tr>
   </thead>
   <tbody>
@@ -55,9 +56,8 @@ while($row = $sql->fetch()){
     <td align="center"><?php echo $hallCode; ?></td>
     <td align="center"><?php echo $room; ?></td>
     <td align="center"><?php echo $complex; ?></td>
+    <td align="center"><?php echo $mailbox; ?></td>
   </tr>
-
-  <!-- #printf("%s %s %s %s %s\n", $resident, $hallName, $hallCode, $room, $complex); -->
 <?php } ?>
 </tbody>
 </table>

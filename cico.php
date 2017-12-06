@@ -20,9 +20,29 @@ or die('Error connecting to MySQL server.');
 if (isset($_POST['id_in']) && isset($_POST['first_in']) && isset($_POST['last_in'])
     && isset($_POST['group']) && isset($_POST['mailbox']) && isset($_POST['complex'])
     && isset($_POST['hall']) && isset($_POST['room'])) {
+      $id = $_POST['id_in'];
+      $first = $_POST['first_in'];
+      $last = $_POST['last_in'];
+      $group = $_POST['group'];
+      $mailbox = $_POST['mailbox'];
+      $complex = $_POST['$complex'];
+      $hall = $_POST['$hall'];
+      $room = $_POST['$room'];
+
+      $query = "INSERT INTO resident (student_id, first_name, last_name, group_code, gender, mailbox_num)
+                VALUES (?, ?, ?, ?, ?, ?)";
+
+      $sql = $conn->prepare($query);
+      $sql->bind_param("issssi", (int)$id, $first, $last, $group, $gender, (int)$mailbox);
+
+      $result = $sql->execute()
+      or die(mysqli_error($conn));
+
+      echo "success";
 
     }
-
+#INSERT INTO resident (student_id, first_name, last_name, group_code, gender, mailbox_num)
+#VALUES (951000015, 'Charlie', 'Placho', 'RES', 'M', 15093)
 
 
 
@@ -43,9 +63,11 @@ Check-In a Resident (ID, First, Last, GroupCode, Gender, Mailbox)
 <input type="text" name="group" placeholder="Group Code">
 <input type="text" name="mailbox" placeholder="Mailbox">
 <br>
+<p>
 Assign to an open room (listed below)
-<input type="text" name="complex" placeholder="Complex">
-<input type="text" name="hall" placeholder="Hall">
+<p>
+<input type="text" name="complex" placeholder="Complex Name">
+<input type="text" name="hall" placeholder="Hall Name">
 <input type="text" name="room" placeholder="Room">
 <br>
 <input type="submit" value="submit">

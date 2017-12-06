@@ -55,7 +55,8 @@ Example (951000000, 1Z5391ABC)
 <?php
 
 $query = 'SELECT package_recipient, student_id, in_date, out_date, tracking_number
-          FROM package';
+          FROM package
+          ORDER BY out_date';
 
 $sql = $conn->prepare($query);
 $result = $sql->execute()

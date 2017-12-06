@@ -19,19 +19,25 @@ or die('Error connecting to MySQL server.');
 
 <?php
 
-if (isset($_POST['id']) && isset($_POST['item'])) {
+if (isset($_POST['id'])) {
   $id = $_POST['id'];
-  $item = $_POST['item'];
 
-  $query = 'INSERT INTO equipment_borrow (item, student_id, out_date)
-            VALUES (?, ?, now())';
+  $query = 'SELECT key_code
+            FROM resident
+            JOIN assignment USING(resident_id)
+            JOIN room USING(room_id)
+            WHERE student_id = (?)';
+
   $sql = $conn->prepare($query);
-  $sql->bind_param("si", $item, $id);
+  $sql->bind_param("i", $id);
   $result = $sql->execute()
   or die(mysqli_error($conn));
+  $sql->bind_result($resident_id);
+  $sql->fetch();
+  $res_id = $resident_id;
+  $sql->close();
 
-  echo $item." has been checked out to $id";
-
+  echo $res_id;
 }
 
 

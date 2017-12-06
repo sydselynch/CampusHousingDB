@@ -77,6 +77,17 @@ if (isset($_POST['id_in']) && isset($_POST['first_in']) && isset($_POST['last_in
       $rid = $room_id;
       echo $rid;
       echo "RID";
+      $sql->close();
+
+      $query = 'INSERT INTO assignment (room_id, start_date, resident_id)
+                VALUES (?, now(), ?)';
+
+      $sql = $conn->prepare($query);
+      $sql->bind_param("ii", $rid, $res_id);
+      $result = $sql->execute()
+      or die(mysqli_error($conn));
+
+      echo "Assignment Created";
 
 
     }

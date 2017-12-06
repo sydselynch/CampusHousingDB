@@ -56,11 +56,6 @@ or die(mysqli_error($conn));
 $sql->store_result();
 
 if ($sql->num_rows > 0) {
-  echo "yes";
-}
-else {
-  echo "no";
-}
 
 $sql->bind_result($resident, $hallName, $hallCode, $room, $complex);
 ?>
@@ -91,6 +86,7 @@ while($row = $sql->fetch()){
 
 <?php
 #end if
+  }
 }
 
 $sql->close();

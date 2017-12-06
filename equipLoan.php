@@ -63,7 +63,7 @@ $query = 'SELECT item, student_id, CONCAT(first_name, " ", last_name) AS name, o
           FROM equipment_borrow
           JOIN resident USING (student_id)
           WHERE in_date IS NULL
-          ORDER BY out_date';
+          ORDER BY out_date DESC';
 
 $sql = $conn->prepare($query);
 $result = $sql->execute()

@@ -8,10 +8,10 @@ or die('Error connecting to MySQL server.');
 
 <html>
 <head>
-  <title>Equipment Check-Out</title>
+  <title>Key Check-Out</title>
 </head>
 
-<h1 align="center">Equipment Check-Out</h1>
+<h1 align="center">Key Check-Out</h1>
 <h3 align="center"><a href="home.php">Return Home</a></h3>
 
 <body bgcolor="white">
@@ -32,8 +32,6 @@ if (isset($_POST['id']) && isset($_POST['item'])) {
 
   echo $item." has been checked out to $id";
 
-
-
 }
 
 
@@ -41,43 +39,39 @@ if (isset($_POST['id']) && isset($_POST['item'])) {
 
 
 <p>
-Check-Out Equipment <br>
-Example (Basketball, 951000000)
+Check-Out Key <br>
+Example (951000000)
 <p>
-<form action="equipLoan.php" method="POST" style="text-align: center;">
+<form action="keyLoan.php" method="POST" style="text-align: center;">
 
-<input type="text" name="item" placeholder="Item">
 <input type="number" name="id" placeholder="ID">
 <br>
 <input type="submit" value="submit">
 <input type="reset" value="erase">
 </form>
 
-
 <hr>
-<h4 align="center">Equipment Checked Out</h4>
+<h4 align="center">Keys Currently Out</h4>
 
 <?php
 
-$query = 'SELECT item, student_id, CONCAT(first_name, " ", last_name) AS name, out_date
-          FROM equipment_borrow
-          JOIN resident USING (student_id)
+$query = 'SELECT student_id, room_key_code, out_date
+          FROM key_borrow
           WHERE in_date IS NULL';
 
 $sql = $conn->prepare($query);
 $result = $sql->execute()
 or die(mysqli_error($conn));
 
-$sql->bind_result($item, $id, $name, $out_date);
+$sql->bind_result($id, $code, $out);
 
 ?>
 
 <table style="width:100%;">
   <thead>
     <tr>
-      <th>Item</th>
       <th>Student ID</th>
-      <th>Name</th>
+      <th>Key Code</th>
       <th>Out Date</th>
     </tr>
   </thead>
@@ -86,10 +80,53 @@ $sql->bind_result($item, $id, $name, $out_date);
 while($row = $sql->fetch()){
   ?>
   <tr>
-    <td align="center"><?php echo $item; ?></td>
+    <td align="center"><?php echo $id; ?></td>
+    <td align="center"><?php echo $code; ?></td>
+    <td align="center"><?php echo $out; ?></td>
+  </tr>
+
+<?php } ?>
+</tbody>
+</table>
+<hr>
+<h4 align="center">Resident Rooms and Keys</h4>
+
+<?php
+
+$query = 'SELECT student_id, CONCAT(first_name, " ", last_name) AS name, room_number, hall_code, room_key_code
+          FROM resident
+          JOIN assignment USING(resident_id)
+          JOIN room USING(room_id)
+          JOIN hall USING(hall_code)';
+
+$sql = $conn->prepare($query);
+$result = $sql->execute()
+or die(mysqli_error($conn));
+
+$sql->bind_result($id, $name, $room, $hall, $key);
+
+?>
+
+<table style="width:100%;">
+  <thead>
+    <tr>
+      <th>Student ID</th>
+      <th>Name</th>
+      <th>Room</th>
+      <th>Hall</th>
+      <th>Key Code</th>
+    </tr>
+  </thead>
+  <tbody>
+<?php
+while($row = $sql->fetch()){
+  ?>
+  <tr>
     <td align="center"><?php echo $id; ?></td>
     <td align="center"><?php echo $name; ?></td>
-    <td align="center"><?php echo $out_date; ?></td>
+    <td align="center"><?php echo $room; ?></td>
+    <td align="center"><?php echo $hall; ?></td>
+    <td align="center"><?php echo $key; ?></td>
   </tr>
 
 <?php } ?>

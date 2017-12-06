@@ -19,7 +19,7 @@ or die('Error connecting to MySQL server.');
 
 <?php
 
-$query = 'SELECT CONCAT(first_name, " ", last_name) AS name, hall.hall_name, hall.hall_code, room_number, complex_code
+$query = 'SELECT CONCAT(first_name, " ", last_name) AS name, hall.hall_name, hall.hall_code, room_number, complex_code, mailbox_num
           FROM assignment
           JOIN resident USING(resident_id)
           JOIN room USING(room_id)

@@ -33,12 +33,15 @@ if (isset($_POST['id_in']) && isset($_POST['first_in']) && isset($_POST['last_in
 
       $query = "INSERT INTO resident (student_id, first_name, last_name, group_code, gender, mailbox_num)
                 VALUES (?, ?, ?, ?, ?, ?)";
+      echo "here1";
 
       $sql = $conn->prepare($query);
+      echo "here2";
       $sql->bind_param("issssi", (int)$id, $first, $last, $group, $gender, (int)$mailbox);
-
+      echo "here3";
       $result = $sql->execute()
       or die(mysqli_error($conn));
+      
 
       echo "success";
 

@@ -37,11 +37,11 @@ if (isset($_POST['id_in']) && isset($_POST['first_in']) && isset($_POST['last_in
 
       $sql = $conn->prepare($query);
       echo "here2";
-      $sql->bind_param("issssi", (int)$id, $first, $last, $group, $gender, (int)$mailbox);
+      $sql->bind_param("issssi", $id, $first, $last, $group, $gender, $mailbox);
       echo "here3";
       $result = $sql->execute()
       or die(mysqli_error($conn));
-      
+
 
       echo "success";
 
@@ -62,11 +62,11 @@ Check-In a Resident (ID, First, Last, GroupCode, Gender, Mailbox)
 <p>
 <form action="cico.php" method="POST" style="text-align: center;">
 
-<input type="text" name="id_in" placeholder="ID">
+<input type="number" name="id_in" placeholder="ID">
 <input type="text" name="first_in" placeholder="First Name">
 <input type="text" name="last_in" placeholder="Last Name">
 <input type="text" name="group" placeholder="Group Code">
-<input type="text" name="mailbox" placeholder="Mailbox">
+<input type="number" name="mailbox" placeholder="Mailbox">
 <br>
 <p>
 Assign to an open room (listed below)

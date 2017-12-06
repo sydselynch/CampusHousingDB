@@ -61,14 +61,14 @@ if (isset($_POST['id_in']) && isset($_POST['first_in']) && isset($_POST['last_in
                 FROM room
                 JOIN hall USING(hall_code)
                 JOIN complex USING(complex_id)
-                WHERE room_number = ? AND hall_name = ? AND complex_name = ?";
+                WHERE room_number = ?";
 
       $sql = $conn->prepare($query);
       echo "HERE";
       echo $room;
       echo $hall;
       echo $complex;
-      $sql->bind_param("iss", $room, $hall, $complex);
+      $sql->bind_param("i");
       echo "HERE";
       $result = $sql->execute()
       or die(mysqli_error($conn));

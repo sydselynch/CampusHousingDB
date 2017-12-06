@@ -136,7 +136,7 @@ Example: Johnson, Boris, 101
 </form>
 
 <p>
-Check-Out a Resident (Name or ID)<br>
+Check-Out a Resident (Name or student ID), all assignments can be found in the roster.<br>
 Example: 951000000, Jerry, Larry
 <p>
 <form action="cico.php" method="POST" style="text-align: center;">

@@ -21,7 +21,7 @@ or die('Error connecting to MySQL server.');
   <tr>
     <th>Administrative Tools</th>
     <th>Equipment Check-out</th>
-    <th>Key Checkout</th>
+    <th>Key Check-out</th>
     <th>Mail and Packages</th>
   </tr>
   <tr>
@@ -41,5 +41,7 @@ or die('Error connecting to MySQL server.');
   </tr>
 </table>
 
-
 <hr>
+<p>
+  Links to all code, connection information, and the mysqldump of the datebase:
+<p>

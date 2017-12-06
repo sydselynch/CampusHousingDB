@@ -62,7 +62,8 @@ Example (Basketball, 951000000)
 $query = 'SELECT item, student_id, CONCAT(first_name, " ", last_name) AS name, out_date
           FROM equipment_borrow
           JOIN resident USING (student_id)
-          WHERE in_date IS NULL';
+          WHERE in_date IS NULL
+          ORDER BY out_date';
 
 $sql = $conn->prepare($query);
 $result = $sql->execute()

@@ -25,7 +25,8 @@ if (isset($_POST['first']) && isset($_POST['last'])){
 ?>
 
 <p>
-Please enter a first and last name (Ex: Walter White, Bob Dylan, Jerry Lerry, Gus Dapperton)
+Please enter a first and last name. All names can be found on the roster page. <br>
+(Ex: Walter White, Bob Dylan, Jerry Lerry, Gus Dapperton)
 <p>
 <form action="lookup.php" method="POST" style="text-align: center;">
 

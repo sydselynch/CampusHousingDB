@@ -36,7 +36,7 @@ if (isset($_POST['id'])) {
 
 
 <p>
-Check-In Equipment <br>
+Check-In Keys (Student ID) <br>
 Example (951000000)
 <p>
 <form action="keyReturn.php" method="POST" style="text-align: center;">
@@ -49,7 +49,7 @@ Example (951000000)
 
 
 <hr>
-<h4 align="center">Keys Checked Out</h4>
+<h4 align="center">Key Checkout Log</h4>
 
 <?php
 

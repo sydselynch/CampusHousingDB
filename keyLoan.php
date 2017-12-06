@@ -41,8 +41,10 @@ if (isset($_POST['id'])) {
             VALUES ((?), now(), (?))';
 
   $sql->bind_param("ii", $key_code, $id);
+  echo "here";
   $result = $sql->execute()
   or die(mysqli_error($conn));
+  echo "here";
 
   echo "$key has been loaned to $id\n";
 }

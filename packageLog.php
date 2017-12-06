@@ -20,7 +20,7 @@ or die('Error connecting to MySQL server.');
 if (isset($_POST['name']) && isset($_POST['id']) && isset($_POST['tracking'])) {
   $name = $_POST['name'];
   $id = $_POST['id'];
-  $tracking = $_POST['name'];
+  $tracking = $_POST['tracking'];
 
   $query = 'INSERT INTO package (package_recipient, student_id, in_date, tracking_number)
             VALUES (?, ?, now(), ?)';

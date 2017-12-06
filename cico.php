@@ -19,7 +19,7 @@ or die('Error connecting to MySQL server.');
 <?php
 if (isset($_POST['id_in']) && isset($_POST['first_in']) && isset($_POST['last_in'])
     && isset($_POST['mailbox']) && isset($_POST['complex'])
-    && isset($_POST['hall']) && isset($_POST['room'])) {
+    && isset($_POST['hall']) && isset($_POST['room_number'])) {
       $id = $_POST['id_in'];
       $first = $_POST['first_in'];
       $last = $_POST['last_in'];

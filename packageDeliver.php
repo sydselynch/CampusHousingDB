@@ -23,7 +23,7 @@ if (isset($_POST['id']) && isset($_POST['tracking'])) {
 
   $query = 'UPDATE package
             SET out_date = now()
-            WHERE student_id = (?) AND tracking_numer = (?) AND out_date IS NULL';
+            WHERE student_id = (?) AND tracking_number = (?) AND out_date IS NULL';
   $sql = $conn->prepare($query);
   $sql->bind_param("is", $id, $tracking);
   $result = $sql->execute()

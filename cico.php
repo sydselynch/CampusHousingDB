@@ -26,9 +26,9 @@ if (isset($_POST['id_in']) && isset($_POST['first_in']) && isset($_POST['last_in
       $group = $_POST['group'];
       $gender = $_POST['gender'];
       $mailbox = $_POST['mailbox'];
-      $complex = $_POST['$complex'];
-      $hall = $_POST['$hall'];
-      $room = $_POST['$room'];
+      $complex = $_POST['complex'];
+      $hall = $_POST['hall'];
+      $room = $_POST['room'];
       echo $room;
       echo $hall;
       echo $complex;

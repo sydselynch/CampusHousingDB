@@ -18,7 +18,7 @@ or die('Error connecting to MySQL server.');
 
 <?php
 if (isset($_POST['id_in']) && isset($_POST['first_in']) && isset($_POST['last_in'])
-    && isset($_POST['group']) && isset($_POST['mailbox']) && isset($_POST['complex'])
+    && isset($_POST['mailbox']) && isset($_POST['complex'])
     && isset($_POST['hall']) && isset($_POST['room'])) {
       $id = $_POST['id_in'];
       $first = $_POST['first_in'];
@@ -75,6 +75,7 @@ Example: 951000123, Puddles, Duck, RES, M, 12456
 <input type="text" name="first_in" placeholder="First Name">
 <input type="text" name="last_in" placeholder="Last Name">
 <input type="text" name="group" placeholder="Group Code">
+<input type="text" name="gender" placeholder="Gender">
 <input type="number" name="mailbox" placeholder="Mailbox">
 <br>
 <p>

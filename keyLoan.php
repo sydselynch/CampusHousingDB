@@ -22,7 +22,7 @@ or die('Error connecting to MySQL server.');
 if (isset($_POST['id'])) {
   $id = $_POST['id'];
 
-  $query = 'SELECT key_code
+  $query = 'SELECT room_key_code
             FROM resident
             JOIN assignment USING(resident_id)
             JOIN room USING(room_id)

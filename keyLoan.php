@@ -36,7 +36,7 @@ if (isset($_POST['id'])) {
   $sql->fetch();
   $key_code = $key;
   $sql->close();
-
+  echo $key_code, $id;
   $query = 'INSERT INTO key_borrow (room_key_code, out_date, student_id)
             VALUES ((?), now(), (?))';
 

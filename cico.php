@@ -100,7 +100,6 @@ if (isset($_POST['id_out']) && isset($_POST['first_out']) && isset($_POST['last_
             WHERE resident_id = (?)';
   $sql = $conn->prepare($query);
   $sql->bind_param("i", $res_id);
-  echo $res_id;
   $result = $sql->execute()
   or die(mysqli_error($conn));
   $sql->close();

@@ -56,36 +56,8 @@ if (isset($_POST['id_in']) && isset($_POST['first_in']) && isset($_POST['last_in
       $sql->fetch();
       echo "RES ID";
       $res_id = $resident_id;
+      echo $res_id;
 
-      $query = 'SELECT room_id
-                FROM room
-                JOIN hall USING(hall_code)
-                JOIN complex USING(complex_id)
-                WHERE complex_name = (?)';
-
-      $sql = $conn->prepare($query);
-      echo "HERE";
-      $sql->bind_param("s", $complex);
-      echo "HERE";
-      $result = $sql->execute()
-      or die(mysqli_error($conn));
-      echo "HERE";
-      $sql->bind_result($room_id);
-      $sql->fetch();
-
-      $rid = $room_id;
-      echo $rid;
-      echo "RID";
-
-      $query = 'INSERT INTO assignment (room_id, start_date, resident_id)
-                VALUES (?, now(), ?)';
-
-      $sql = $conn->prepare($query);
-      $sql->bind_param("ii", $rid, $res_id);
-      $result = $sql->execute()
-      or die(mysqli_error($conn));
-
-      echo "Assignment Created";
 
     }
 #INSERT INTO resident (student_id, first_name, last_name, group_code, gender, mailbox_num)

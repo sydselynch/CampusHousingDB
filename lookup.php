@@ -20,7 +20,6 @@ or die('Error connecting to MySQL server.');
 if (isset($_POST['first']) && isset($_POST['last'])){
   $firstName = $_POST['first'];
   $lastName = $_POST['last'];
-  echo $firstName;
 }
 
 ?>
@@ -38,6 +37,7 @@ Please enter a first and last name (Ex: Walter White, Bob Dylan, Jerry Lerry, Gu
 
 
 <?php
+
 $query = 'SELECT CONCAT(first_name, " ", last_name) AS name, hall.hall_name, hall.hall_code, room_number, complex_name
           FROM assignment
           JOIN resident USING(resident_id)
@@ -52,6 +52,8 @@ $sql->bind_param("ss", $firstName, $lastName);
 
 $result = $sql->execute()
 or die(mysqli_error($conn));
+
+if ($result->num_rows > 0) {
 
 $sql->bind_result($resident, $hallName, $hallCode, $room, $complex);
 ?>
@@ -82,6 +84,7 @@ while($row = $sql->fetch()){
 
 <?php
 #end if
+}
 }
 $sql->close();
 mysqli_free_result($result);

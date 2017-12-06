@@ -19,7 +19,7 @@ or die('Error connecting to MySQL server.');
 
 <?php
 
-$query = 'SELECT CONCAT(first_name, " ", last_name) AS name, hall.hall_name, hall.hall_code, room_number, complex_code, mailbox_num
+$query = 'SELECT CONCAT(first_name, " ", last_name) AS name, hall.hall_name, hall.hall_code, room_number, complex_code, mailbox_num, group_code
           FROM assignment
           JOIN resident USING(resident_id)
           JOIN room USING(room_id)
@@ -32,7 +32,7 @@ $sql = $conn->prepare($query);
 $result = $sql->execute()
 or die(mysqli_error($conn));
 
-$sql->bind_result($resident, $hallName, $hallCode, $room, $complex, $mailbox);
+$sql->bind_result($resident, $hallName, $hallCode, $room, $complex, $mailbox, $group);
 
 ?>
 <table style="width:100%;">
@@ -44,6 +44,7 @@ $sql->bind_result($resident, $hallName, $hallCode, $room, $complex, $mailbox);
       <th>Room</th>
       <th>Complex</th>
       <th>Mailbox</th>
+      <th>Group</th>
     </tr>
   </thead>
   <tbody>
@@ -57,6 +58,7 @@ while($row = $sql->fetch()){
     <td align="center"><?php echo $room; ?></td>
     <td align="center"><?php echo $complex; ?></td>
     <td align="center"><?php echo $mailbox; ?></td>
+    <td align="center"><?php echo $group; ?></td>
   </tr>
 <?php } ?>
 </tbody>

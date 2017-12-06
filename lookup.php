@@ -20,6 +20,7 @@ or die('Error connecting to MySQL server.');
 if (isset($_POST['first']) && isset($_POST['last'])){
   $firstName = $_POST['first'];
   $lastName = $_POST['last'];
+  echo $firstName;
 }
 
 ?>

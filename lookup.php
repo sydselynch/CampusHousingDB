@@ -88,6 +88,9 @@ while($row = $sql->fetch()){
 #end if
   }
 }
+else {
+  echo "Invalid Name";
+}
 
 $sql->close();
 mysqli_free_result($result);

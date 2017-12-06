@@ -19,7 +19,7 @@ or die('Error connecting to MySQL server.');
 <?php
 if (isset($_POST['id_in']) && isset($_POST['first_in']) && isset($_POST['last_in'])
     && isset($_POST['mailbox']) && isset($_POST['complex'])
-    && isset($_POST['hall']) && isset($_POST['room_number'])) {
+    && isset($_POST['hall']) && isset($_POST['room_num'])) {
       $id = $_POST['id_in'];
       $first = $_POST['first_in'];
       $last = $_POST['last_in'];
@@ -28,7 +28,7 @@ if (isset($_POST['id_in']) && isset($_POST['first_in']) && isset($_POST['last_in
       $mailbox = $_POST['mailbox'];
       $complex = $_POST['complex'];
       $hall = $_POST['hall'];
-      $room = $_POST['room_number'];
+      $room = $_POST['room_num'];
       echo $room;
       echo $hall;
       echo $complex;
@@ -64,7 +64,7 @@ if (isset($_POST['id_in']) && isset($_POST['first_in']) && isset($_POST['last_in
                 WHERE student_id = (?)";
       $sql = $conn->prepare($query);
       echo "prepared";
-      $sql->bind_param("i", $id);
+      $sql->bind_param("i", $room);
       echo "bound";
 
 

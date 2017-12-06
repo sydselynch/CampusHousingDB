@@ -55,7 +55,7 @@ if (isset($_POST['id_in']) && isset($_POST['first_in']) && isset($_POST['last_in
 <p>
 Check-In a Resident (ID, First, Last, GroupCode, Gender, Mailbox)
 <p>
-<form action="lookup.php" method="POST" style="text-align: center;">
+<form action="cico.php" method="POST" style="text-align: center;">
 
 <input type="text" name="id_in" placeholder="ID">
 <input type="text" name="first_in" placeholder="First Name">

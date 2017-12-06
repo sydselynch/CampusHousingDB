@@ -56,6 +56,9 @@ or die(mysqli_error($conn));
 if ($result->num_rows > 0) {
   echo "yes";
 }
+else {
+  echo "no";
+}
 
 $sql->bind_result($resident, $hallName, $hallCode, $room, $complex);
 ?>

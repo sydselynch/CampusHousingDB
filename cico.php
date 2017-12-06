@@ -57,11 +57,11 @@ if (isset($_POST['id_in']) && isset($_POST['first_in']) && isset($_POST['last_in
       echo "RES ID";
       $res_id = $resident_id;
 
-      $query = 'SELECT room_id
+      $query = "SELECT room_id
                 FROM room
                 JOIN hall USING(hall_code)
                 JOIN complex USING(complex_id)
-                WHERE room_number = ? AND hall_name = ? AND complex_name = ?';
+                WHERE room_number = ? AND hall_name = ? AND complex_name = ?";
 
       $sql = $conn->prepare($query);
       echo "HERE";

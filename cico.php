@@ -58,6 +58,15 @@ if (isset($_POST['id_in']) && isset($_POST['first_in']) && isset($_POST['last_in
       $res_id = $resident_id;
       echo $res_id;
 
+      $query = "SELECT room_id
+                FROM room
+                WHERE room_number = (?)";
+
+      $sql = $conn->prepare($query);
+      echo "prepared";
+      $sql->bind_param("i", $room);
+      echo "bound";
+
 
     }
 #INSERT INTO resident (student_id, first_name, last_name, group_code, gender, mailbox_num)

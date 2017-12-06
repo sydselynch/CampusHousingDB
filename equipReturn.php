@@ -8,10 +8,10 @@ or die('Error connecting to MySQL server.');
 
 <html>
 <head>
-  <title>Equipment Check-Out</title>
+  <title>Equipment Check-In</title>
 </head>
 
-<h1 align="center">Equipment Check-Out</h1>
+<h1 align="center">Equipment Check-In</h1>
 <h3 align="center"><a href="home.php">Return Home</a></h3>
 
 <body bgcolor="white">

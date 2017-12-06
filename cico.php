@@ -91,19 +91,19 @@ if (isset($_POST['id_out']) && isset($_POST['first_out']) && isset($_POST['last_
   $sql->bind_param("i", $id);
   $result = $sql->execute()
   or die(mysqli_error($conn));
-
+  echo "HERE";
   $sql->bind_result($resident_id);
   $sql->fetch();
   $res_id = $resident_id;
   $sql->close();
-
+  echo "HERE";
   $query = 'UPDATE assignment
             SET end_date = now()
             WHERE resident_id = (?) AND end_date = NULL';
   $sql = $conn->prepare($query);
   $result = $sql->execute()
   or die(mysqli_error($conn));
-
+  echo "HERE";
   $sql->close();
 
   echo "Resident ".$first." ".$last." checked out of assignment.\n";

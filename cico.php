@@ -61,11 +61,12 @@ if (isset($_POST['id_in']) && isset($_POST['first_in']) && isset($_POST['last_in
                 WHERE room_number = (?) AND hall_name = (?) AND complex_name = (?)';
 
       $sql = $conn->prepare($query);
+      echo "HERE";
       $sql->bind_param("iss", $room, $hall, $complex);
-      $result = $sql->execute();
-      echo mysqli_error($conn);
-      #or die(mysqli_error($conn));
-
+      echo "HERE";
+      $result = $sql->execute()
+      or die(mysqli_error($conn));
+      echo "HERE";
       $sql->bind_result($room_id);
       $sql->fetch();
 
@@ -78,8 +79,8 @@ if (isset($_POST['id_in']) && isset($_POST['first_in']) && isset($_POST['last_in
 
       $sql = $conn->prepare($query);
       $sql->bind_param("ii", $rid, $res_id);
-      $result = $sql->execute();
-      #or die(mysqli_error($conn));
+      $result = $sql->execute()
+      or die(mysqli_error($conn));
 
       echo "Assignment Created";
 

@@ -110,10 +110,6 @@ if (isset($_POST['id_out']) && isset($_POST['first_out']) && isset($_POST['last_
 
 ?>
 
-
-
-
-
 <p>
 Check-In a Resident (ID, First, Last, GroupCode, Gender, Mailbox) <br>
 Example: 951000123, Puddles, Duck, RES, M, 12456

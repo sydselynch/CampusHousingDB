@@ -91,12 +91,10 @@ if (isset($_POST['id_out']) && isset($_POST['first_out']) && isset($_POST['last_
   $sql->bind_param("i", $id);
   $result = $sql->execute()
   or die(mysqli_error($conn));
-  echo "HERE";
   $sql->bind_result($resident_id);
   $sql->fetch();
   $res_id = $resident_id;
   $sql->close();
-  echo "HERE";
   $query = 'UPDATE assignment
             SET end_date = now()
             WHERE resident_id = (?)';
@@ -105,13 +103,9 @@ if (isset($_POST['id_out']) && isset($_POST['first_out']) && isset($_POST['last_
   echo $res_id;
   $result = $sql->execute()
   or die(mysqli_error($conn));
-  echo "HERE";
   $sql->close();
 
   echo "Resident ".$first." ".$last." checked out of assignment.\n";
-
-
-
 }
 
 ?>
@@ -130,12 +124,13 @@ Example: 951000123, Puddles, Duck, RES, M, 12456
 <input type="text" name="first_in" placeholder="First Name">
 <input type="text" name="last_in" placeholder="Last Name">
 <br>
-<input type="text" name="group" placeholder="Group Code">
+<input type="text" name="group" placeholder="Group Code (optional)">
 <input type="text" name="gender" placeholder="Gender">
-<input type="number" name="mailbox" placeholder="Mailbox">
+<input type="number" name="mailbox" placeholder="Mailbox (optional)">
 <br>
 <p>
-Assign to an open room (listed below)
+Assign to an open room (all open rooms listed below) <br>
+Example: Johnson, Boris, 101
 <p>
 <input type="text" name="complex" placeholder="Complex Name">
 <input type="text" name="hall" placeholder="Hall Name">
@@ -146,7 +141,9 @@ Assign to an open room (listed below)
 </form>
 
 <p>
-Check-Out a Resident (Name or ID)
+Check-Out a Resident (Name or ID)<br>
+Example: 951000000, Jerry, Larry
+<p>
 <form action="cico.php" method="POST" style="text-align: center;">
 
 <input type="text" name="id_out" placeholder="ID">
@@ -156,8 +153,6 @@ Check-Out a Resident (Name or ID)
 <input type="submit" value="submit">
 <input type="reset" value="erase">
 </form>
-
-
 
 <hr>
 <h4 align="center">Rooms without a person assigned</h4>
@@ -202,7 +197,6 @@ while($row = $sql->fetch()){
     <td align="center"><?php echo $complex; ?></td>
   </tr>
 
-  <!-- #printf("%s %s %s %s %s\n", $resident, $hallName, $hallCode, $room, $complex); -->
 <?php } ?>
 </tbody>
 </table>

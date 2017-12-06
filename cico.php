@@ -16,8 +16,8 @@ or die('Error connecting to MySQL server.');
 
 <body bgcolor="white">
 
-
-<p> Rooms without a person assigned
+<hr>
+<h4 align="center">Rooms without a person assigned</h4>
 
 <?php
 
@@ -42,7 +42,6 @@ $sql->bind_result($hallName, $hallCode, $room, $complex);
 <table style="width:100%;">
   <thead>
     <tr>
-      <th>Name</th>
       <th>Hall Name</th>
       <th>Hall Code</th>
       <th>Room</th>
@@ -54,7 +53,6 @@ $sql->bind_result($hallName, $hallCode, $room, $complex);
 while($row = $sql->fetch()){
   ?>
   <tr>
-    <td align="center"><?php echo $resident; ?></td>
     <td align="center"><?php echo $hallName; ?></td>
     <td align="center"><?php echo $hallCode; ?></td>
     <td align="center"><?php echo $room; ?></td>

@@ -45,7 +45,7 @@ if (isset($_POST['id'])) {
   $result = $sql->execute()
   or die(mysqli_error($conn));
 
-  echo "Key:$key has been loaned to $id\n";
+  echo "Key: $key has been loaned to $id\n";
 }
 
 
@@ -53,7 +53,7 @@ if (isset($_POST['id'])) {
 
 
 <p>
-Check-Out Key <br>
+Check-Out Key - All resident IDs and keys are displayed below<br>
 Example (951000000)
 <p>
 <form action="keyLoan.php" method="POST" style="text-align: center;">

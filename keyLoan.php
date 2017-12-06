@@ -36,17 +36,16 @@ if (isset($_POST['id'])) {
   $sql->fetch();
   $key_code = $key;
   $sql->close();
-  echo $key_code, $id;
+
   $query = 'INSERT INTO key_borrow (room_key_code, out_date, student_id)
             VALUES (?, now(), ?)';
-  $sql = $conn->prepare($query);          
+  $sql = $conn->prepare($query);
   $sql->bind_param("ii", $key_code, $id);
-  echo "here";
+
   $result = $sql->execute()
   or die(mysqli_error($conn));
-  echo "here";
 
-  echo "$key has been loaned to $id\n";
+  echo "Key:$key has been loaned to $id\n";
 }
 
 

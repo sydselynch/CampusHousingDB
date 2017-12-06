@@ -41,7 +41,7 @@ if (isset($_POST['id_in']) && isset($_POST['first_in']) && isset($_POST['last_in
       $result = $sql->execute()
       or die(mysqli_error($conn));
 
-
+      $sql->close();
       echo "{$first}"." successfully added.";
 
       $query = "SELECT resident_id
@@ -57,6 +57,7 @@ if (isset($_POST['id_in']) && isset($_POST['first_in']) && isset($_POST['last_in
       echo "RES ID";
       $res_id = $resident_id;
       echo $res_id;
+      $sql->close();
 
       $query = "SELECT room_id
                 FROM room
@@ -64,7 +65,7 @@ if (isset($_POST['id_in']) && isset($_POST['first_in']) && isset($_POST['last_in
 
       $sql = $conn->prepare($query);
       echo "prepared";
-      $sql->bind_param("i", $room);
+      $sql->bind_param("i", (int)$room);
       echo "bound";
 
 

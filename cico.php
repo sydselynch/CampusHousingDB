@@ -59,9 +59,9 @@ if (isset($_POST['id_in']) && isset($_POST['first_in']) && isset($_POST['last_in
       echo $res_id;
       $sql->close();
 
-      $query = "SELECT resident_id
-                FROM resident
-                WHERE student_id = (?)";
+      $query = "SELECT room_id
+                FROM room
+                WHERE room_number = (?)";
       $sql = $conn->prepare($query);
       echo "prepared";
       $sql->bind_param("i", $room);

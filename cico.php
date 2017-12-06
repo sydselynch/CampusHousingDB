@@ -24,26 +24,34 @@ if (isset($_POST['id_in']) && isset($_POST['first_in']) && isset($_POST['last_in
       $first = $_POST['first_in'];
       $last = $_POST['last_in'];
       $group = $_POST['group'];
+      $gender = $_POST['gender'];
       $mailbox = $_POST['mailbox'];
       $complex = $_POST['$complex'];
       $hall = $_POST['$hall'];
       $room = $_POST['$room'];
 
-      echo "set";
-
       $query = "INSERT INTO resident (student_id, first_name, last_name, group_code, gender, mailbox_num)
                 VALUES (?, ?, ?, ?, ?, ?)";
-      echo "here1";
 
       $sql = $conn->prepare($query);
-      echo "here2";
       $sql->bind_param("issssi", $id, $first, $last, $group, $gender, $mailbox);
-      echo "here3";
       $result = $sql->execute()
       or die(mysqli_error($conn));
 
 
-      echo "success";
+      echo "{$first}"." successfully added.";
+
+      $query = "SELECT resident_id
+                FROM resident
+                WHERE student_id = (?)";
+      $sql = $conn->prepare($query);
+      $sql->bind_param("i", $id);
+      $result = $sql->execute()
+      or die(mysqli_error($conn));
+
+      $sql->bind_result($resident_id);
+      $sql->fetch();
+      echo $resident_id;
 
     }
 #INSERT INTO resident (student_id, first_name, last_name, group_code, gender, mailbox_num)
@@ -58,7 +66,8 @@ if (isset($_POST['id_in']) && isset($_POST['first_in']) && isset($_POST['last_in
 
 
 <p>
-Check-In a Resident (ID, First, Last, GroupCode, Gender, Mailbox)
+Check-In a Resident (ID, First, Last, GroupCode, Gender, Mailbox) <br>
+Example: 951000123, Puddles, Duck, RES, M, 12456
 <p>
 <form action="cico.php" method="POST" style="text-align: center;">
 

@@ -107,7 +107,7 @@ if (isset($_POST['id_out']) && isset($_POST['first_out']) && isset($_POST['last_
 
   $sql->close();
 
-  echo "Resident checked out of assignment.\n";
+  echo "Resident ".$first." ".$last." checked out of assignment.\n";
 
 
 

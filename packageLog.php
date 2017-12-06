@@ -44,7 +44,7 @@ if (isset($_POST['name']) && isset($_POST['id']) && isset($_POST['tracking'])) {
 Log a package (Recipient, Student ID, Tracking Number) <br>
 Example (Jerry Larry, 951000000, 1Z5391ABC)
 <p>
-<form action="equipLoan.php" method="POST" style="text-align: center;">
+<form action="packageLog.php" method="POST" style="text-align: center;">
 
 <input type="text" name="name" placeholder="Name">
 <input type="number" name="id" placeholder="ID">

@@ -76,7 +76,7 @@ Assign to an open room (listed below)
 
 <p>
 Check-Out a Resident (Name or ID)
-<form action="lookup.php" method="POST" style="text-align: center;">
+<form action="cico.php" method="POST" style="text-align: center;">
 
 <input type="text" name="id_out" placeholder="ID">
 <input type="text" name="first_out" placeholder="First Name">

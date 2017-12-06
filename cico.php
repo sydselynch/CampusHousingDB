@@ -74,6 +74,7 @@ Example: 951000123, Puddles, Duck, RES, M, 12456
 <input type="number" name="id_in" placeholder="ID">
 <input type="text" name="first_in" placeholder="First Name">
 <input type="text" name="last_in" placeholder="Last Name">
+<br>
 <input type="text" name="group" placeholder="Group Code">
 <input type="text" name="gender" placeholder="Gender">
 <input type="number" name="mailbox" placeholder="Mailbox">

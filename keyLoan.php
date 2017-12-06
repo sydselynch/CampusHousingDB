@@ -40,7 +40,7 @@ if (isset($_POST['id'])) {
   $query = 'INSERT INTO key_borrow (room_key_code, out_date, student_id)
             VALUES ((?), now(), (?))';
 
-  $sql->bind_param("ii", $key, $id);
+  $sql->bind_param("ii", $key_code, $id);
   $result = $sql->execute()
   or die(mysqli_error($conn));
 

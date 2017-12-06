@@ -29,9 +29,6 @@ if (isset($_POST['id_in']) && isset($_POST['first_in']) && isset($_POST['last_in
       $complex = $_POST['complex'];
       $hall = $_POST['hall'];
       $room = $_POST['room_num'];
-      echo $room;
-      echo $hall;
-      echo $complex;
 
       $query = "INSERT INTO resident (student_id, first_name, last_name, group_code, gender, mailbox_num)
                 VALUES (?, ?, ?, ?, ?, ?)";
@@ -42,7 +39,7 @@ if (isset($_POST['id_in']) && isset($_POST['first_in']) && isset($_POST['last_in
       or die(mysqli_error($conn));
 
       $sql->close();
-      echo "{$first}"." successfully added.";
+      echo "{$first}"." successfully added.\n";
 
       $query = "SELECT resident_id
                 FROM resident
@@ -54,9 +51,7 @@ if (isset($_POST['id_in']) && isset($_POST['first_in']) && isset($_POST['last_in
 
       $sql->bind_result($resident_id);
       $sql->fetch();
-      echo "RES ID";
       $res_id = $resident_id;
-      echo $res_id;
       $sql->close();
 
       $query = "SELECT room_id
@@ -65,18 +60,12 @@ if (isset($_POST['id_in']) && isset($_POST['first_in']) && isset($_POST['last_in
                 JOIN complex USING(complex_id)
                 WHERE room_number = (?) AND hall_name = (?) AND complex_name = (?)";
       $sql = $conn->prepare($query);
-      echo "prepared";
       $sql->bind_param("iss", $room, $hall, $complex);
-      echo "bound";
       $result = $sql->execute()
       or die(mysqli_error($conn));
-      echo "HERE";
       $sql->bind_result($room_id);
       $sql->fetch();
-
       $rid = $room_id;
-      echo $rid;
-      echo "RID";
       $sql->close();
 
       $query = 'INSERT INTO assignment (room_id, start_date, resident_id)
@@ -88,7 +77,6 @@ if (isset($_POST['id_in']) && isset($_POST['first_in']) && isset($_POST['last_in
       or die(mysqli_error($conn));
 
       echo "Assignment Created";
-
 
     }
 #INSERT INTO resident (student_id, first_name, last_name, group_code, gender, mailbox_num)

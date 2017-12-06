@@ -61,10 +61,11 @@ if (isset($_POST['id_in']) && isset($_POST['first_in']) && isset($_POST['last_in
 
       $query = "SELECT room_id
                 FROM room
-                WHERE room_number = (?)";
+                JOIN hall USING(hall_code)
+                WHERE room_number = (?) AND hall_name = (?)";
       $sql = $conn->prepare($query);
       echo "prepared";
-      $sql->bind_param("i", $room);
+      $sql->bind_param("is", $room, $hall);
       echo "bound";
 
 

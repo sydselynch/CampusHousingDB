@@ -44,7 +44,7 @@ $query = 'SELECT CONCAT(first_name, " ", last_name) AS name, hall.hall_name, hal
           JOIN room USING(room_id)
           JOIN hall USING(hall_code)
           JOIN complex USING(complex_id)
-          WHERE first_name = (?) AND last_name = (?)
+          WHERE first_name = (?) AND last_name = (?) AND assignment.end_date IS NULL
           LIMIT 1';
 
 $sql = $conn->prepare($query);

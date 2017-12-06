@@ -8,31 +8,35 @@ or die('Error connecting to MySQL server.');
 
 <html>
 <head>
-  <title>Resident Roster</title>
+  <title>Check-In and Check-Out</title>
 </head>
 
-<h1 align="center">Current Housing Roster</h1>
+<h1 align="center">Check-In and Check-Out</h1>
 <h3 align="center"><a href="home.php">Return Home</a></h3>
 
 <body bgcolor="white">
 
 
+<p> Rooms without a person assigned
+
 <?php
 
-$query = 'SELECT CONCAT(first_name, " ", last_name) AS name, hall.hall_name, hall.hall_code, room_number, complex_code
-          FROM assignment
-          JOIN resident USING(resident_id)
-          JOIN room USING(room_id)
+$query = 'SELECT hall.hall_name, hall.hall_code, room_number, complex_name
+          FROM room
           JOIN hall USING(hall_code)
           JOIN complex USING(complex_id)
+          WHERE room_id NOT IN
+          (
+          SELECT room_id
+          FROM assignment
           WHERE assignment.end_date IS NULL
-          ORDER BY hall_code, room_number';
+          )';
 
 $sql = $conn->prepare($query);
 $result = $sql->execute()
 or die(mysqli_error($conn));
 
-$sql->bind_result($resident, $hallName, $hallCode, $room, $complex);
+$sql->bind_result($hallName, $hallCode, $room, $complex);
 
 ?>
 <table style="width:100%;">

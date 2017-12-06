@@ -29,7 +29,7 @@ if (isset($_POST['first']) && isset($_POST['last'])){
 <form action="lookup.php" method="POST" style="text-align: center;">
 
 <input type="text" name="first">
-<input type="text" nane="last"> <br>
+<input type="text" name="last"> <br>
 <input type="submit" value="submit">
 <input type="reset" value="erase">
 </form>

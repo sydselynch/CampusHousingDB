@@ -51,7 +51,34 @@ if (isset($_POST['id_in']) && isset($_POST['first_in']) && isset($_POST['last_in
 
       $sql->bind_result($resident_id);
       $sql->fetch();
-      echo $resident_id;
+      #echo $resident_id;
+      $res_id = $resident_id;
+
+      $query = 'SELECT room_id
+                FROM room
+                JOIN hall USING(hall_code)
+                JOIN complex USING(complex_id)
+                WHERE room_number = (?) AND hall_name = (?) AND complex_name = (?)';
+
+      $sql = $conn->prepare($query);
+      $sql->bind_param("iss", $room, $hall, $complex);
+      $result = $sql->execute()
+      or die(mysqli_error($conn));
+
+      $sql->bind_result($room_id);
+      $sql->fetch();
+
+      $rid = $room_id;
+
+      $query = 'INSERT INTO assignment (room_id, start_date, resident_id)
+                VALUES (?, now(), ?)';
+
+      $sql = $conn->prepare($query);
+      $sql->bind_param("ii", $rid, $res_id);
+      $result = $sql->execute()
+      or die(mysqli_error($conn));
+
+      echo "Assignment Created";
 
     }
 #INSERT INTO resident (student_id, first_name, last_name, group_code, gender, mailbox_num)
@@ -84,7 +111,7 @@ Assign to an open room (listed below)
 <p>
 <input type="text" name="complex" placeholder="Complex Name">
 <input type="text" name="hall" placeholder="Hall Name">
-<input type="text" name="room" placeholder="Room">
+<input type="number" name="room" placeholder="Room">
 <br>
 <input type="submit" value="submit">
 <input type="reset" value="erase">

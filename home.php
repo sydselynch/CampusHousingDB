@@ -45,10 +45,13 @@ or die('Error connecting to MySQL server.');
 <p>
   Links to all code, connection information, and the mysqldump of the datebase:
 <p>
-<br>
+<a href="code/home.txt">Home</a><br>
 <a href="code/roster.txt">Roster</a><br>
-<a href=""></a><br>
-<a href=""></a><br>
-<a href=""></a><br>
-<a href=""></a><br>
-<a href=""></a><br>
+<a href="code/lookup.txt">Look-Up</a><br>
+<a href="code/cico.txt">Check-In and Check-Out</a><br>
+<a href="code/equipLoan.txt">Equipment Loan</a><br>
+<a href="code/equipReturn.txt">Equipment Return</a><br>
+<a href="code/keyLoan.txt">Key Loan</a><br>
+<a href="code/keyReturn.txt">Key Return</a><br>
+<a href="code/packageLog.txt">Package Log</a><br>
+<a href="code/packageDeliver.txt">Package Deliver</a><br>

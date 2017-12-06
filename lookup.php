@@ -22,6 +22,9 @@ if (isset($_POST['first']) && isset($_POST['last'])){
   $lastName = $_POST['last'];
   echo $firstName;
 }
+else {
+  echo "fuck";
+}
 
 ?>
 

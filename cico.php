@@ -68,6 +68,15 @@ if (isset($_POST['id_in']) && isset($_POST['first_in']) && isset($_POST['last_in
       echo "prepared";
       $sql->bind_param("iss", $room, $hall, $complex);
       echo "bound";
+      $result = $sql->execute()
+      or die(mysqli_error($conn));
+      echo "HERE";
+      $sql->bind_result($room_id);
+      $sql->fetch();
+
+      $rid = $room_id;
+      echo $rid;
+      echo "RID";
 
 
     }

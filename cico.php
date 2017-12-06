@@ -99,9 +99,10 @@ if (isset($_POST['id_out']) && isset($_POST['first_out']) && isset($_POST['last_
   echo "HERE";
   $query = 'UPDATE assignment
             SET end_date = now()
-            WHERE resident_id = (?) AND end_date = NULL';
+            WHERE resident_id = (?)';
   $sql = $conn->prepare($query);
   $sql->bind_param("i", $res_id);
+  echo $res_id;
   $result = $sql->execute()
   or die(mysqli_error($conn));
   echo "HERE";

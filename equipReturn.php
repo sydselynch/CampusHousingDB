@@ -25,7 +25,7 @@ if (isset($_POST['id']) && isset($_POST['item'])) {
 
   $query = 'UPDATE equipment_borrow
             SET in_date = now()
-            WHERE item = (?) AND student_id = (?) AND in_date = NULL';
+            WHERE item = (?) AND student_id = (?) AND in_date IS NULL';
   $sql = $conn->prepare($query);
   $sql->bind_param("si", $item, $id);
   $result = $sql->execute()

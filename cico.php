@@ -29,6 +29,8 @@ if (isset($_POST['id_in']) && isset($_POST['first_in']) && isset($_POST['last_in
       $hall = $_POST['$hall'];
       $room = $_POST['$room'];
 
+      echo "set";
+
       $query = "INSERT INTO resident (student_id, first_name, last_name, group_code, gender, mailbox_num)
                 VALUES (?, ?, ?, ?, ?, ?)";
 

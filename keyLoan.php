@@ -32,12 +32,19 @@ if (isset($_POST['id'])) {
   $sql->bind_param("i", $id);
   $result = $sql->execute()
   or die(mysqli_error($conn));
-  $sql->bind_result($resident_id);
+  $sql->bind_result($key);
   $sql->fetch();
-  $res_id = $resident_id;
+  $key_code = $key;
   $sql->close();
 
-  echo $res_id;
+  $query = 'INSERT INTO key_borrow (room_key_code, out_date, student_id)
+            VALUES ((?), now(), (?))';
+
+  $sql->bind_param("ii", $key, $id);
+  $result = $sql->execute()
+  or die(mysqli_error($conn));
+
+  echo "$key has been loaned to $id\n";
 }
 
 

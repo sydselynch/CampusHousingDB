@@ -53,9 +53,9 @@ $sql->bind_param("ss", $firstName, $lastName);
 $result = $sql->execute()
 or die(mysqli_error($conn));
 
-$result->store_result();
+$sql->store_result();
 
-if ($result->num_rows > 0) {
+if ($sql->num_rows > 0) {
   echo "yes";
 }
 else {

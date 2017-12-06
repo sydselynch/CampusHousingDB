@@ -89,7 +89,9 @@ while($row = $sql->fetch()){
   }
 }
 else {
-  echo "Invalid Name";
+  if (isset($_POST['first']) && isset($_POST['last'])){
+    echo "Invalid Name";
+  }
 }
 
 $sql->close();

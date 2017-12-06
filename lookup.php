@@ -22,17 +22,16 @@ if (isset($_POST['first']) && isset($_POST['last'])){
   $lastName = $_POST['last'];
   echo $firstName;
 }
-else {
-  echo "fuck";
-}
 
 ?>
 
-<div>
+<p>
+Please enter a first and last name (Ex: Walter White, Bob Dylan, Jerry Lerry, Gus Dapperton)
+<p>
 <form action="lookup.php" method="POST" style="text-align: center;">
 
-<input type="text" name="first">
-<input type="text" name="last"> <br>
+<input type="text" name="first" placeholder="First Name">
+<input type="text" name="last" placeholder="Last Name"> <br>
 <input type="submit" value="submit">
 <input type="reset" value="erase">
 </form>
@@ -78,12 +77,11 @@ while($row = $sql->fetch()){
   <td align="center"><?php echo $complex; ?></td>
 </tr>
 
-<!-- #printf("%s %s %s %s %s\n", $resident, $hallName, $hallCode, $room, $complex); -->
 </tbody>
 </table>
 
 <?php
-#end if!!!
+#end if
 }
 $sql->close();
 mysqli_free_result($result);

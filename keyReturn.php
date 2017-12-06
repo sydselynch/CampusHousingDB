@@ -54,7 +54,8 @@ Example (951000000)
 <?php
 
 $query = 'SELECT student_id, room_key_code, out_date, in_date
-          FROM key_borrow';
+          FROM key_borrow
+          ORDER BY in_date';
 
 $sql = $conn->prepare($query);
 $result = $sql->execute()

@@ -28,7 +28,7 @@ if (isset($_POST['id_in']) && isset($_POST['first_in']) && isset($_POST['last_in
       $mailbox = $_POST['mailbox'];
       $complex = $_POST['complex'];
       $hall = $_POST['hall'];
-      $room = $_POST['room'];
+      $room = $_POST['room_number'];
       echo $room;
       echo $hall;
       echo $complex;
@@ -99,7 +99,7 @@ Assign to an open room (listed below)
 <p>
 <input type="text" name="complex" placeholder="Complex Name">
 <input type="text" name="hall" placeholder="Hall Name">
-<input type="number" name="room" placeholder="Room">
+<input type="number" name="room_num" placeholder="Room">
 <br>
 <input type="submit" value="submit">
 <input type="reset" value="erase">

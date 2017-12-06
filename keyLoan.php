@@ -38,8 +38,8 @@ if (isset($_POST['id'])) {
   $sql->close();
   echo $key_code, $id;
   $query = 'INSERT INTO key_borrow (room_key_code, out_date, student_id)
-            VALUES ((?), now(), (?))';
-
+            VALUES (?, now(), ?)';
+  $sql = $conn->prepare($query);          
   $sql->bind_param("ii", $key_code, $id);
   echo "here";
   $result = $sql->execute()

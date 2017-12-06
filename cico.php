@@ -51,7 +51,7 @@ if (isset($_POST['id_in']) && isset($_POST['first_in']) && isset($_POST['last_in
 
       $sql->bind_result($resident_id);
       $sql->fetch();
-      #echo $resident_id;
+      echo "RES ID";
       $res_id = $resident_id;
 
       $query = 'SELECT room_id
@@ -69,6 +69,7 @@ if (isset($_POST['id_in']) && isset($_POST['first_in']) && isset($_POST['last_in
       $sql->fetch();
 
       $rid = $room_id;
+      echo "RID".$rid;
 
       $query = 'INSERT INTO assignment (room_id, start_date, resident_id)
                 VALUES (?, now(), ?)';

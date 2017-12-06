@@ -65,7 +65,7 @@ if (isset($_POST['id_in']) && isset($_POST['first_in']) && isset($_POST['last_in
 
       $sql = $conn->prepare($query);
       echo "HERE";
-      $sql->bind_param("iss", $room, $hall, $complex);
+      echo $sql->bind_param("sss", $room, $hall, $complex);
       echo "HERE";
       $result = $sql->execute()
       or die(mysqli_error($conn));

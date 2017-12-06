@@ -76,13 +76,42 @@ if (isset($_POST['id_in']) && isset($_POST['first_in']) && isset($_POST['last_in
       $result = $sql->execute()
       or die(mysqli_error($conn));
 
-      echo "Assignment Created";
+      echo "Assignment Created.\n";
 
     }
-#INSERT INTO resident (student_id, first_name, last_name, group_code, gender, mailbox_num)
-#VALUES (951000015, 'Charlie', 'Placho', 'RES', 'M', 15093)
+if (isset($_POST['id_out']) && isset($_POST['first_out']) && isset($_POST['last_out'])) {
+  $id = $_POST['id_out'];
+  $first = $_POST['first_out'];
+  $last = $_POST['last_out'];
+
+  $query = "SELECT resident_id
+            FROM resident
+            WHERE student_id = (?)";
+  $sql = $conn->prepare($query);
+  $sql->bind_param("i", $id);
+  $result = $sql->execute()
+  or die(mysqli_error($conn));
+
+  $sql->bind_result($resident_id);
+  $sql->fetch();
+  $res_id = $resident_id;
+  $sql->close();
+
+  $query = 'UPDATE assignment
+            SET end_date = now()
+            WHERE resident_id = (?) AND end_date = NULL';
+  $sql = $conn->prepare($query);
+  $sql->bind_param("i", $res_id);
+  $result = $sql->execute()
+  or die(mysqli_error($conn));
+
+  $sql->close();
+
+  echo "Resident checked out of assignment.\n";
 
 
+
+}
 
 ?>
 
@@ -121,7 +150,7 @@ Check-Out a Resident (Name or ID)
 
 <input type="text" name="id_out" placeholder="ID">
 <input type="text" name="first_out" placeholder="First Name">
-<input type="text" name="last" placeholder="Last Name">
+<input type="text" name="last_out" placeholder="Last Name">
 <br>
 <input type="submit" value="submit">
 <input type="reset" value="erase">
